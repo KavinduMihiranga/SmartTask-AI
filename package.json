@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install"
-  },
+    "build": "npm install",
+    "start": "node server.js"
+    },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
-  "dependencies": {
+  "devDependencies": {
     "@playwright/test": "^1.60.0",
     "@types/node": "^25.9.2",
     "jest": "^30.4.2",

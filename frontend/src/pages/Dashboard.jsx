@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import Navbar from '../components/Navbar';
 import axios from 'axios';
 import { AuthContext } from '../context/AuthContext';
+import API_URL from '../api';
 
 function Dashboard() {
   const [taskTitle, setTaskTitle] = useState('');
@@ -16,7 +17,7 @@ function Dashboard() {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/tasks');
+        const response = await axios.get(`${API_URL}/api/tasks`);
         setTasks(response.data);
       } catch (err) {
         console.error('Failed to load tasks:', err);
@@ -36,7 +37,7 @@ function Dashboard() {
     setLoading(true);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/tasks', {
+      const response = await axios.post(`${API_URL}/api/tasks`, {
         title: taskTitle,
         description: taskDesc
       });
@@ -75,7 +76,7 @@ function Dashboard() {
       setTasks(updatedTasks);
 
       try {
-        await axios.put(`http://localhost:5000/api/tasks/${taskId}/subtasks`, {
+        await axios.put(`${API_URL}/api/tasks/${taskId}/subtasks`, {
           subTasks: task.subTasks
         });
       } catch (err) {
@@ -95,7 +96,7 @@ function Dashboard() {
     setTasks(tasks.filter(task => task._id !== taskId));
 
     try {
-      await axios.delete(`http://localhost:5000/api/tasks/${taskId}`);
+      await axios.delete(`${API_URL}/api/tasks/${taskId}`);
     } catch (err) {
       console.error('Task deletion failed:', err);
       setError(err.response?.data?.message || 'Could not delete task.');

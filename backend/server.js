@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
     res.send('AI Task Manager Backend is running successfully!');
 });
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8080;
 
 // ටෙස්ට් එකේදී මේ කොටස රන් වෙන්නේ නැහැ (Port ප්‍රශ්න විසඳන්න)
 if (process.env.NODE_ENV !== 'test') {

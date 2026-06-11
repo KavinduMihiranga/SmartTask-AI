@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm install",
-    "start": "node server.js"
+    "build": "cd backend && npm install",
+    "start": "node backend/server.js"
     },
   "keywords": [],
   "author": "",

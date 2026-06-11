@@ -1,4 +1,6 @@
-import crypto from 'crypto';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
+import crypto from 'node:crypto';
 import dotenv from 'dotenv';
 dotenv.config();
 

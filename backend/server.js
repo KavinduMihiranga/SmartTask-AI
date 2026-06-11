@@ -2,7 +2,6 @@ import 'dotenv/config'; // මෙය තනි පේළියකින් doten
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import crypto from 'node:crypto'; // නිවැරදි ඉම්පෝර්ට් එක
 
 import authRoutes from './routes/authRoutes.js'; 
 import taskRoutes from './routes/taskRoutes.js'; 

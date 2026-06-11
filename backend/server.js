@@ -1,4 +1,4 @@
-import 'dotenv/config'; // මෙය තනි පේළියකින් dotenv සකසයි
+import 'dotenv/config';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -9,11 +9,9 @@ import aiRoutes from './routes/aiRoutes.js';
 
 const app = express();
 
-// Middlewares
 app.use(cors());
 app.use(express.json());
 
-// Routes
 app.use('/api/auth', authRoutes); 
 app.use('/api/tasks', taskRoutes); 
 app.use('/api/ai', aiRoutes); 
@@ -30,7 +28,10 @@ if (process.env.NODE_ENV !== 'test') {
             console.log('✅ Connected to MongoDB!');
             app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
         })
-        .catch((err) => console.error('❌ MongoDB connection failed:', err.message));
+        .catch((err) => {
+            console.error('❌ MongoDB connection failed:', err.message);
+            console.error('Stack:', err.stack);
+        });
 }
 
 export default app;
